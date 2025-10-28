@@ -11,6 +11,10 @@ class BasePage:
         self.driver.get(url)
         return self
 
+    def inner_check_equals_url(self, url_reference):
+        current_url = self.driver.current_url
+        print("Статус правильности урла: ", current_url == url_reference)
+
     def findElement(self, locator):
         return self.wait.until(EC.presence_of_element_located(locator))
 
