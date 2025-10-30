@@ -45,3 +45,34 @@ class Page(BasePage):
 
         alert.accept()
         return self
+
+    def get_first_names(self):
+        first_names = self.find_elements(locators.PARENT_COLUMN_FOR_SORT_FIRST_NAME)
+        return [fn.text.strip() for fn in first_names if fn.text.strip()]
+
+    def sort_and_check_customers(self):
+        button_show_list_customers = self.wait_until_visible(
+            locators.BUTTON_LIST_CUSTOMERS
+        )
+        button_show_list_customers.click()
+        time.sleep(2)
+
+        names_before_sorting = self.get_first_names()
+        print("До сортировки: ", names_before_sorting)
+
+        sort_by_fn = self.wait_until_visible(locators.SORT_BY_FIRST_NAME_HREF)
+        sort_by_fn.click()
+        time.sleep(2)
+
+        names_after_sorting_desk = self.get_first_names()
+        print("После сортировки: ", names_after_sorting_desk)
+
+        real_sort_desk = sorted(names_before_sorting, reverse=True)
+        print("Целевой список: ", real_sort_desk)
+
+        assert (
+            real_sort_desk == names_after_sorting_desk
+        ), f"Ожидался список {real_sort_desk}, а получилась фигня: {names_after_sorting_desk}"
+
+        time.sleep(5)
+        return self

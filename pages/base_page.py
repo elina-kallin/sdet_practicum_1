@@ -40,3 +40,8 @@ class BasePage:
         wt = wait(self.driver, timeout)
         alert = wt.until(EC.alert_is_present())
         return alert
+
+    def find_elements(self, parent):
+        # elements = self.find_elements(*parent)
+        # return elements
+        return self.driver.find_elements(*parent)
