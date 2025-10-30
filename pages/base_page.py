@@ -29,3 +29,14 @@ class BasePage:
 
     def wait_until_clicable(self, locator, timeout=10):
         return wait(self.driver, timeout).until(EC.element_to_be_clickable(locator))
+
+    def fill_input(self, locator, keys):
+        input_field = self.wait_until_visible(locator)
+        input_field.click()
+        input_field.clear()
+        input_field.send_keys(keys)
+
+    def wait_for_alert(self, timeout=5):
+        wt = wait(self.driver, timeout)
+        alert = wt.until(EC.alert_is_present())
+        return alert

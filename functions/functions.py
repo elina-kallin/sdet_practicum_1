@@ -19,3 +19,8 @@ def generate_first_name(post_code):
         name += letter
     name[0].upper
     return name
+
+
+def generate_lastName(first_name):
+    revers_last_name = first_name[::-1]
+    return revers_last_name
