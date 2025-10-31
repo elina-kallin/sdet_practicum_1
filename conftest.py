@@ -6,4 +6,4 @@ from selenium import webdriver as wb
 def browser():
     driver = wb.Firefox()
     yield driver
-    driver.close()
+    driver.quit()

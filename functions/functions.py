@@ -24,3 +24,13 @@ def generate_first_name(post_code):
 def generate_lastName(first_name):
     revers_last_name = first_name[::-1]
     return revers_last_name
+
+
+def find_deleting_customer(customers):
+    name_lengths = [len(customer) for customer in customers]
+
+    average = round(sum(name_lengths) / len(customers))
+
+    closest_by_length_customer = min(customers, key=lambda c: abs(len(c) - average))
+
+    return closest_by_length_customer
