@@ -24,9 +24,8 @@ jobs:
         
       - name: Install Allure
         run: |
-            sudo apt-add-repository ppa:qameta/allure -y
-            sudo apt-get update
-            sudo apt-get install allure -y
+            wget https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_amd64 -O ./allurectl 
+            chmod +x ./allurectl
 
 
       - name: run tests with allure
