@@ -9,18 +9,15 @@ class BasePage:
 
     def open(self, url):
         self.driver.get(url)
-        return self
 
     def inner_check_equals_url(self, url_reference):
-        current_url = self.driver.current_url
-        print("Статус правильности урла: ", current_url == url_reference)
+        return url_reference == self.driver.current_url
 
-    def findElement(self, locator):
+    def find_element(self, locator):
         return self.wait.until(EC.presence_of_element_located(locator))
 
     def scroll_to_element(self, element):
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
-        return self
 
     def wait_until_visible(self, locator, timeout=10):
         return wait(self.driver, timeout).until(
@@ -42,6 +39,4 @@ class BasePage:
         return alert
 
     def find_elements(self, parent):
-        # elements = self.find_elements(*parent)
-        # return elements
         return self.driver.find_elements(*parent)

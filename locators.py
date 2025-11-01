@@ -8,13 +8,8 @@ BUTTON_SUBMIT_ADD_CUSTOMER = (By.CSS_SELECTOR, 'button[type="submit"]')
 
 BUTTON_LIST_CUSTOMERS = (By.CSS_SELECTOR, 'button[ng-click="showCust()"]')
 SORT_BY_FIRST_NAME_HREF = (
-    By.XPATH,
-    "/html/body/div/div/div[2]/div/div[2]/div/div/table/thead/tr/td[1]/a",
-)
-
-PARENT_COLUMN_FOR_SORT_FIRST_NAME = (
-    By.XPATH,
-    "/html/body/div/div/div[2]/div/div[2]/div/div/table/tbody/tr",
+    By.CSS_SELECTOR,
+    "a[ng-click=\"sortType = 'fName'; sortReverse = !sortReverse\"]",
 )
 
 TR = (By.CSS_SELECTOR, "tr")
