@@ -1,0 +1,3 @@
+До сортировки: ['Hermoine', 'Harry', 'Ron', 'Albus', 'Neville']
+После сортировки: ['Ron', 'Neville', 'Hermoine', 'Harry', 'Albus']
+Целевой список: ['Ron', 'Neville', 'Hermoine', 'Harry', 'Albus']
