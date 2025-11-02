@@ -94,6 +94,7 @@ class CustomersPage(BasePage):
 
         return deleting_customer_name
 
+    @allure.step("Проверка отсутствия удаленного кастомера")
     def check_deleting_customer(self, deleted_customer_name):
 
         customers_after = self.get_first_names()
